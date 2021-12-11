@@ -1,0 +1,95 @@
+// USER VARIABLES SECTION
+
+$accent: #1C3983 // Accent Color
+$fontsize: 16px // Body Font Size
+$textcolor: #48589C // Text Color
+$lineheight: 1.65 // Document Line Height
+$bg: #FEF7FF // background & color white
+$block: #6D81DB // Block color
+
+// FONT
+$userfont: Montserrat, sans-serif // User Font Family
+$logofont: Comfortaa, sans-serif // logo Font Family
+$titlefont: Rubik, sans-serif // title Font Family
+
+
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+$min-width: 320px
+$max-width: 78.125rem
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 15px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap')
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import 'node_modules/hamburgers/dist/hamburgers.min'
+
+
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: local($fname), url($furl) format('woff2')
+		// font-display: swap // Uncomment to initially display system fonts
+
+// GENERAL DOCUMENT STYLES
+*
+	padding: 0
+	margin: 0
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	background: $bg
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+	padding: 0
+	margin: 0
+	
+
+
+h1,h2,h3,h4,h5,h6
+	margin: 0
+	padding: 0
+	
+p
+	margin: 0
+	padding: 0
+
+ul
+	margin: 0
+	padding: 0
+	list-style: none
+
+a, a:hover
+	text-decoration: none
+
+html, body
+	height: 100%
+
+

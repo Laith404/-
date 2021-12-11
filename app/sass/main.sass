@@ -1,0 +1,855 @@
+@import config
+
+
+// setting window
+.hidden
+    display: none
+
+.main-container
+    padding: 0
+    min-width: $min-width
+    width: 100%
+    position: relative
+    overflow: hidden
+    min-height: 100%
+
+.container
+  max-width: $max-width
+  min-width: $min-width
+  width: 100%
+  height: 100%
+  padding: 0 .9375rem
+  margin: 0 auto
+
+.container-full
+    margin: 0 auto
+    width: 100%
+
+.left,.right
+    width: 50%
+    @media screen and ( max-width: 75rem )
+        width: 100%
+        
+/// setting window --> img - flex
+
+.typical-img
+    position: relative
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    display: block
+
+.typical-img > *
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    display: block
+
+.typical-img img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.typical-img:before
+    padding-bottom: 100%
+    display: block
+    content: ''
+
+//======================================================\\
+//|                  ANIMATION CIRCLE                  |\\
+//======================================================\\
+
+@for $i from 1 through 4 
+    .circle:nth-child(#{$i})
+        animation: 10s particle-animation infinite alternate
+        animation-delay: -$i * .5s
+    @keyframes particle-animation
+        100% 
+            transform: translateY(100% / $i * .5)
+
+.anim_circle
+    position: fixed
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    z-index: -2
+    .circle
+        position: absolute
+        background: #ECD2FF
+        width: 100%
+        height: 100%
+        border-radius: 100%
+        transition: .25s
+        opacity: 1
+        &.circle-active
+            transition-delay: .35s
+            background: #FEF7FF
+
+        &:nth-child(1)
+            left: 2%
+            top: 35%
+            width: 100%
+            height: 100%
+            max-width: 12rem
+            max-height: 12rem
+
+            &.circle-active
+                box-shadow: 0 0 0 125rem #7A8EE4
+
+        &:nth-child(2)
+            left: 40%
+            top: -20%
+            width: 100%
+            height: 100%
+            max-width:  23.875rem
+            max-height: 23.875rem
+
+            z-index: 2
+        &:nth-child(3)
+            left: 33%
+            top: 77%
+            width: 100%
+            height: 100%
+            max-width:  10.5625rem
+            max-height: 10.5625rem
+
+            z-index: 2
+        &:nth-child(4)
+            left: 48%
+            top: 75%
+            width: 100%
+            height: 100%
+            max-width: 3.9375rem
+            max-height: 3.9375rem
+
+            z-index: 2
+
+
+
+
+
+@media screen and (min-width: 100.061875rem)
+    .anim_circle .circle
+        &:nth-child(1)
+            max-width: 25rem
+            max-height: 25rem
+        &:nth-child(2)
+            max-width: 25rem
+            max-height: 25rem
+        &:nth-child(3)
+            max-width: 12rem
+            max-height: 12rem
+        &:nth-child(4)
+            max-width: 6rem
+            max-height: 6rem
+@media screen and ( max-width: 1200px )
+    .anim_circle
+        .circle
+            position: absolute
+            background: #ECD2FF
+            width: 100%
+            height: 100%
+            border-radius: 100%
+            transition: .85s all ease-in-out .15s
+            &.circle-active
+                background: #FEF7FF
+            &:nth-child(1)
+                right: -15%
+                left: auto
+                top: 20%
+                &.circle-active
+                    box-shadow: 0 0 0 125rem #7A8EE4
+
+            &:nth-child(2)
+                right: 30%
+                left: auto
+                top: -5%
+                max-width: 13.375rem
+                max-height: 13.375rem
+                z-index: 2
+
+            &:nth-child(3)
+                left: 33%
+                top: 73%
+                z-index: 2
+            
+            &:nth-child(4)
+                overflow: hidden
+                opacity: 0
+@media screen and ( max-width: 48rem )
+    .anim_circle
+        .circle
+            position: absolute
+            background: rgba(236, 210, 255, .5)
+            width: 100%
+            height: 100%
+            border-radius: 100%
+            transition: .85s all ease-in-out .15s
+            &.circle-active
+                background: rgba(254, 247, 255, .5)
+            &:nth-child(1)
+                left: -53%
+                top: 25%
+                max-width: 19.625rem
+                max-height: 19.625rem
+                &.circle-active
+                    box-shadow: 0 0 0 125rem #7A8EE4
+
+            &:nth-child(2)
+                right: -20%
+                left: auto
+                top: 20%
+                max-width: 10.375rem
+                max-height: 10.375rem
+                z-index: 2
+
+            &:nth-child(3)
+                left: 33%
+                top: 73%
+                max-width: 4.5625rem
+                max-height: 4.5625rem
+                z-index: 2
+
+//=================================================\\
+//|                     HEADER                    |\\
+//=================================================\\
+.header
+    transition: .5s all
+    &-active
+        .header-logo
+            
+            &_img
+                background: #6D81DB
+            span
+                color: $bg
+            &:hover,&:focus
+                .header-logo_img
+                    background: #6d81db
+                    box-shadow: 0 0 .625rem rgba(48,48,48,.25)
+                span
+                    color: $bg
+                    text-shadow: 0 .625rem .625rem rgba(48, 48, 48,.25)
+
+    .container
+        max-width: calc(100% - 6.25rem)
+
+    .content
+        display: flex
+        justify-content: space-between
+        padding:
+            top: 1.5625rem
+            left: 0
+            right: 0
+            bottom: 1.5625rem
+    &-logo
+        outline: none
+        display: flex
+        align-items: center 
+        &_img
+            display: block
+            position: relative
+            width: 4rem
+            height: 3.25rem
+            display: inline-block
+            border-radius: .375rem
+            background:
+                color: $block
+            transition: .45s all ease-in-out .15s
+            img
+                width: auto
+                top: 50%
+                left: 50%
+                display: block
+                position: absolute
+                transform: translate(-50%,-50%)
+        span
+            padding:
+                left: .4375rem
+            color: $textcolor
+            font:
+                size: 1.125rem
+                family: $logofont
+                weight: 700
+            line-height: 1.25rem
+            transition: .45s all ease-in-out 
+
+        &:hover,&:focus
+            .header-logo_img
+                background: 
+                    color: #BBAFF1
+            span
+                color: #9787df
+
+
+
+    // navigation
+    nav
+        position: absolute
+        right: -100%
+        top: 50%
+        transform: translateY(-50%)
+        width: 40%
+        transition: .5s all
+        &.open-menu
+            right: 0
+            ul li
+                left: 0
+                &:nth-child(1)
+                        transition-delay: 0s
+                &:nth-child(2)
+                        transition-delay: .5s
+                &:nth-child(3)
+                        transition-delay: .75s
+                &:nth-child(4)
+                        transition-delay: 1s
+                &:nth-child(5)
+                        transition-delay: 1.25s
+                &:nth-child(6)
+                        transition-delay: 1.5s
+                &:nth-child(7)
+                        transition-delay: 1.75s
+
+        ul li
+            padding: .9375rem 0
+            box-sizing: border-box
+            position: relative
+            left: 150%
+            transition: .5s all
+            > a
+                color: #FEF7FF
+                outline: none
+                position: relative
+                display: inline-block
+                font:
+                    size: 1.5rem
+                    family: $logofont
+                    weight: 400
+                transition: .5s all
+                
+                &:hover,&:focus
+                    font:
+                        size: 2.25rem
+            &.current_page_item > a
+                    font:
+                        size: 3rem
+                    &::before
+                        content: ''
+                        display: block
+                        position: absolute
+                        right: 0
+                        margin:
+                            right: -6.25rem
+                        width: 5.4375rem
+                        top: 50%
+                        transform: translateY(-50%)
+                        height: .25rem
+                        background: #ECD2FF
+                        border-radius: 3.125rem
+
+
+
+
+
+
+    .hamburger
+        width: 4rem
+        height: 3.875rem
+        padding: 0
+        box-shadow: 0 .25rem .6875rem rgba(0, 0, 0, 0.25)
+        border-radius: .9375rem
+        transition: .5s all ease-in-out .15s
+        outline: none
+        &:hover,&:focus
+            opacity: 1
+            box-shadow: 0 .25rem .6875rem rgba(0, 0, 0, 0.5)
+        &-box
+            height: 1.5625rem
+            transform: translateY(10%)
+        &-inner,&-inner:before,&-inner:after
+            background:
+                color: #4D588B
+            width: 2.5rem
+            height: .3125rem
+            border-radius: .3125rem
+    // active hamburger
+    .hamburger.is-active 
+        background: $bg
+    .hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner:after, .hamburger.is-active .hamburger-inner:before
+        background: #4D588B
+        width: 2.4rem
+.header.not-main
+    nav
+        left: -100%
+        &.open-menu
+            left: 0
+            ul li
+                left: 30%
+        ul li
+            left: -100%
+//=================================================\\
+//|                    CONTENT                    |\\
+//=================================================\\
+.main_not_scroll
+    height: 80vh
+.main-content
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-wrap: wrap
+    z-index: 2
+    height: 100%
+    transition: .35s all
+    &.hidden
+            z-index: -1
+            opacity: 0
+            transition: 0 all
+
+    .info-block
+        padding: .625rem
+        width: 100%
+        display: flex
+        align-items: center
+        border-radius: .9375rem
+        cursor: default
+        justify-content: center
+        background: $block
+        color: $bg
+        font:
+            size: 1rem
+            weight: 400
+            family: $titlefont
+        margin: .9375rem 0
+    .artist-video
+        height: 100%!important
+        padding-bottom: 89.35%
+        video
+            width: 100%
+            height: 100%
+            top: 0
+            left: 0
+
+            object-fit: cover
+            position: absolute
+            
+    .box-img
+        display: block
+        position: relative
+        max-width: 28.125rem
+        width: 100%
+        height: 35.875rem
+        z-index: -1
+        img
+            width: 100%
+            height: auto
+            display: block
+        // background: url('../img/dest/artist.png')
+        // background-size: contain
+        // background-repeat: no-repeat
+    
+    .info
+        display: inline-block
+        width: 100%
+        z-index: 2
+        transition: .5s all
+    
+        .subtitle
+            display: inline-block
+            background: $block
+            border-radius: 1.25rem 1.25rem 1.25rem 0
+            color: $bg
+            font:
+                size: .875rem
+                family: $logofont
+                weight: 400
+            padding: .75rem 1.9375rem
+            line-height: 1
+            filter: drop-shadow(-0.0625rem .1875rem .5625rem rgba(28, 57, 131, 0.36))
+
+        .title
+            color: $accent
+            font:
+                size: 3rem
+                weight: 700
+                family: $titlefont
+            line-height: 1
+            padding:
+                top: 1rem
+                bottom: 1.375rem
+        .text-zone 
+            color: $accent
+            font:
+                size: 1.125rem
+                family: $userfont
+            white-space: pre-line
+            line-height: 1.375rem
+            padding:
+                bottom: 1.125rem
+        .btn
+            display: inline-block
+            color: $bg
+            background: $block
+            font:
+                size: 1.25rem
+                weight: 700
+                family: $logofont
+            line-height: 1
+            padding: .8125rem 5.6875rem
+            border-radius: 1.25rem
+            transition: .5s all ease-in-out .05s
+            border: .125rem solid transparent
+            box-sizing: border-box
+            &:hover,&:focus
+                border: .125rem solid $accent
+                background: $bg
+                color: $accent
+        .social
+            display: flex
+            padding:
+                top: 1.875rem
+            li
+                padding: 0 .4375rem
+                &:first-child
+                    padding:
+                        left: 0
+                &:last-child
+                    padding:
+                        right: 0
+                a
+                    color: #7479DC
+                    font:
+                        size: 1.875rem
+                    transition: .5s all
+                    &:hover,&:focus
+                        opacity: .7
+
+    .sort
+        margin:
+            bottom: 2.5rem
+        display: flex
+        > .btn
+            margin: 0 .625rem
+            padding: .625rem 2.3125rem
+            background: $bg
+            color: $textcolor
+            border: 1px solid $block
+            font:
+                size: .9375rem
+                weight: 400
+
+            &:hover
+                border: 1px solid $block
+                transform: scale(1.05)
+                background: $block
+                color: $bg 
+
+            &.active
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25)
+                background: $block
+                color: $bg
+                border: 1px solid transparent
+                &:hover
+                    border: 1px solid transparent
+            
+            &:first-child
+                margin:
+                    left: 0
+            &:last-child
+                margin:
+                    right: 0
+
+.aboutme 
+
+    .main-content
+
+        .box-img
+            margin:
+                left: auto
+
+        .text-zone
+            padding:
+                bottom: 1.875rem
+
+    .anim_circle
+        .circle
+            &:nth-child(1)
+                right: 7%
+                bottom: 10%
+                top: auto
+                left: auto
+            &:nth-child(3)
+                left: 30%
+            &:nth-child(4)
+                top: 70%
+
+.picturekids
+    .main-content
+        flex-direction: column
+        align-items: flex-start
+    .text
+        margin:
+            bottom: 1.875rem    
+        .title
+            line-height: 1
+            margin: 0
+            padding: 
+                bottom: .8125rem
+
+.mypicture
+    .text
+        margin:
+            bottom: 1.25rem
+
+.picturekids, .mypicture
+    .anim_circle .circle
+        &:nth-child(1)
+            right: -5%
+            left: auto
+            top: 40%
+            max-width: 36.625rem
+            max-height: 36.625rem
+            &.circle-active
+                box-shadow: 0 0 0 125rem #7A8EE4
+
+        &:nth-child(2)
+            left: -12.5%
+            right: auto
+            top: 20%
+            max-width: 25.875rem
+            max-height: 25.875rem
+            z-index: 2
+
+        &:nth-child(3)
+            left: 53%
+            top: -10%
+            max-width: 11.5625rem
+            max-height: 11.5625rem
+            z-index: 2
+         
+        &:nth-child(4)
+            right: 7.5%
+            left: auto
+            top: 15%
+            max-width: 12.9375rem
+            max-height: 12.9375rem
+            z-index: 2
+
+.lessons
+    .anim_circle
+        .circle
+            &:nth-child(1)
+                right: 7%
+                bottom: 10%
+                top: auto
+                left: auto
+            &:nth-child(3)
+                left: -5%
+                max-width: 15rem
+                max-height: 15rem
+            &:nth-child(4)
+                top: 90%
+    .main-content
+        padding: 0
+        height: 100%
+    .info
+        display: flex
+        padding: 1.25rem 5rem
+    .video, .open_video
+        background: #e6e6e6b9
+        width: 100%
+        height: 100%
+        display: block
+        position: relative
+        border-radius: 1.25rem
+        > *
+            border-radius: 1.25rem
+            display: block
+            width: 100%
+            height: 100%
+
+    .active_video
+        width: 78%
+        display: block
+        margin:
+            right: 1.5625rem
+
+        .open_video
+            height: 100%
+            max-height: 47.75rem
+        
+        .title_video
+            padding:
+                top: .9375rem
+            font:
+                size: 1.125rem
+                weight: 400
+                family: $userfont
+            color: $textcolor
+
+
+    .nav_lessons
+        width: 18%
+        position: relative
+        padding: 3.9375rem .9375rem 1.5625rem
+        background: #fff
+        border-radius: .9375rem
+        .info-block
+            top: 0
+            left: 0
+            margin: 0
+            position: absolute
+            border-radius: .9375rem .9375rem 0 0
+        .lesson
+            position: relative
+            top: 0
+            height: 100%
+            width: 100%
+            max-height: 43rem
+            .video
+                margin: .625rem 0
+                width: 100%
+                height: 12.5rem
+                cursor: pointer
+                display: block
+                position: relative
+                &::before
+                    content: ''
+                    display: block
+                    top: 0
+                    left: 0
+                    right: 0
+                    bottom: 0
+                    width: 100%
+                    height: 100%
+                    background: rgba(28, 57, 131, .75)
+                    z-index: 1
+                    position: absolute
+                &::after
+                    content: 'Смотреть'
+                    display: block
+                    width: auto
+                    height: auto
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%,-50%)
+                    color: $bg
+                    font:
+                        size: 1.125rem
+                        weight: 500
+                    z-index: 2
+                    position: absolute
+
+                &:first-child
+                    margin:
+                        top: 0
+                &:last-child
+                    margin:
+                        bottom: 0
+
+// ============================================== \\
+// |              SCROLLBAR (Simple)            | \\
+// ============================================== \\
+
+.simplebar-scrollbar:before
+    background: #ECD2FF
+    opacity: 1!important
+    
+.simplebar-content-wrapper
+    padding:
+        right: 1.25rem
+
+// ============================================== \\
+// |              Massory (code CSS)            | \\
+// ============================================== \\
+.transition-fade 
+  transition: 0.4s
+  opacity: 1
+
+
+html.is-animating .transition-fade 
+  opacity: 0
+
+
+.grid
+    max-width: 1200px
+    width: 100%
+.grid-item 
+  float: left
+  height: 400px
+  width: 24%
+  border-radius: .625rem
+  box-shadow: 0 0 .625rem rgba(48,48,48,.5)
+  margin:
+      bottom: .625rem
+  cursor: pointer
+  transition: .5s all
+  
+  &:hover,&:focus
+      transform: scale(1.1)
+      z-index: 10000
+
+  img
+      width: 100%
+      height: 100%
+
+.grid-item--width2
+    width: 49%
+.grid-item--height2
+    height: 250px
+
+// 404 error //
+.error-404 .main-container
+    height: 100vh
+.error4O4
+    .content
+        position: absolute
+        top: 40%
+        left: 50%
+        transform: translate(-50%,-50%)
+        display: block
+    .text-zone
+        font:
+            size: 1.125rem
+            weight: 400
+        text-align: center
+        display: block
+        padding-bottom: 1.25rem
+        span
+            display: block
+            margin: 5px 0
+            width: 100%
+    h1
+        font-size: 15.3125rem
+        line-height: 1
+        text-align: center
+    .back
+        padding:
+            top: 3.125rem
+        display: flex
+        align-items: center
+        justify-content: center
+        .btn
+            display: inline-block
+            color: $bg
+            background: $block
+            font:
+                size: 1rem
+                weight: 700
+                family: $logofont
+            line-height: 1
+            padding: .8125rem 3.6875rem
+            margin:
+                left: .9375rem
+            border-radius: 1.25rem
+            transition: .5s all ease-in-out .05s
+            border: .125rem solid transparent
+            box-sizing: border-box
+            &:hover,&:focus
+                border: .125rem solid $accent
+                background: $bg
+                color: $accent
+
+
+@import media

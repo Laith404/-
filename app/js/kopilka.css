@@ -1,0 +1,7 @@
+.main-content {
+display: block!important;
+}
+.main-content.hidden {
+display: none!important;
+z-index: -10;
+}

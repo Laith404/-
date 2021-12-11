@@ -1,0 +1,383 @@
+//======================================================\\
+//|                    CONTENT MEDIA                   |\\
+//======================================================\\
+
+// ================ < 1200 px ( 75rem ) ================ \\
+@media screen and ( max-width: 75rem )
+    .aboutme .box-img
+        max-width: 19.125rem
+        max-height: 25.875rem 
+    .artist-img
+        width: 100%
+        height: auto !important
+        img
+            width: 100%
+            display: block
+
+        
+    .main-content .artist
+        width: 100%
+        padding:
+            left: 1.875em
+            right: 1.875em
+    .main .main-content
+        width: 80%  
+    // navigation  
+    nav
+        left: -100%
+        right: auto
+        top: 40%
+        ul li
+            left: -150%!important
+        &.open-menu
+            left: 10%!important
+            right: auto
+            ul li
+                left: 0%!important
+    .grid-item
+        height: 21.875rem
+
+    .modal-info .document
+        font:
+            size: .75rem
+    
+    .lessons 
+        .info
+            flex-wrap: wrap
+            padding: 1.25rem 3.125rem
+        .active_video 
+            width: 100%
+            margin: 0 0 .9375rem
+            .open_video
+                min-height: 30rem
+            
+        .nav_lessons
+            width: 100%
+            max-height: 100%
+            margin-left: 0
+            
+
+            .simplebar-content-wrapper
+                padding: 0
+            .simplebar-content
+                display: flex
+                flex-wrap: wrap
+            .lesson 
+                max-height: 100%
+                .video
+                    width: calc(100% / 2 - 1.25rem)
+                    height: 100%
+                    margin: .625rem
+                    &:first-child
+                        margin:
+                            top: .625rem
+                    &:last-child
+                        margin:
+                            bottom: .625rem
+
+
+// ================ > 768 px ( 48rem ) ================ \\
+@media screen and ( max-width: 48rem )
+
+    .aboutme .anim_circle .circle:nth-child(1)
+        left: -50%
+        right: auto
+    
+    .aboutme .anim_circle .circle:nth-child(3)
+        left: 70%
+
+    .picturekids .anim_circle .circle:nth-child(2), .mypicture .anim_circle .circle:nth-child(2)
+        left: -20.5%
+        top: 10%
+        max-width: 10.875rem
+        max-height: 10.875rem
+    .picturekids .anim_circle .circle:nth-child(1), .mypicture .anim_circle .circle:nth-child(1)
+        right: -45%
+        top: 60%
+        max-width: 28.625rem
+        max-height: 28.625rem
+    
+    .anim_circle .circle:nth-child(2)
+        left: 5%
+        top: 10%
+        width: 5.375rem
+        height: 5.375rem
+    .lessons .anim_circle .circle:nth-child(1)
+        right: -30%
+        width: 12.5rem
+        height: 12.5rem
+        top: 10%
+
+
+    .main-content .info .title
+        font:
+            size: 1.5rem
+    .aboutme .info .title
+        padding:
+            bottom: .9375rem
+    .main-content .artist
+        padding: 0
+    .main-content .info .text-zone
+        font:
+            size: .875rem
+
+    .main .main-content
+        width: 100%
+
+    .header .container
+        max-width: 100%
+
+    .artist-img img 
+        width: 50%
+        margin: 0 auto
+        
+
+    .btn
+        width: 100%
+        font:
+            size: .875rem!important
+        text-align: center
+    
+    .social
+        position: absolute
+        bottom: 1.25rem
+        left: 1.25rem
+        li
+            padding: 0 .75rem
+            a   
+                display: flex
+                align-items: center
+                justify-content: center
+                background: $block
+                color: $bg!important
+                width: 3.45rem
+                height: 3.45rem
+                border-radius: 100%
+    
+    // modal
+    .modal-content
+        padding:
+            left: 1.5rem
+            right: 1.5rem
+    .modal-header .close
+        right: -1.5rem
+    // massory
+    .grid-item
+        height: 12rem
+        width: 30%
+    .grid-item--width2
+        width: 62%
+
+    // hamburger
+    .header .hamburger
+      width: 3.875rem
+      height: 3.875rem
+      background: $bg
+
+    // navigation  
+    .header nav
+        left: -100%
+        right: auto
+        top: 40%
+        width: 100%
+
+        ul li
+            left: -150%
+            text-align: center
+    
+            > a
+                font:
+                    size: .875rem
+
+                &:hover,&:focus
+                    font:
+                        size: 1.5rem
+            &.current_page_item > a
+                    font:
+                        size: 2.25rem
+
+                    &::before
+                        width: 100%
+                        bottom: 0
+                        top: auto
+                        left: 50%
+                        transform: translateX(-50%)
+
+        &.open-menu
+            left: 50%!important
+            right: auto
+            transform: translate(-50%,-50%)
+            ul li
+                left: 0%
+
+    // main
+    .main .artist
+        .subtitle
+            font:
+                size: .75rem
+            padding: .75rem 2.125rem
+        .title
+            font:
+                size: 1.75rem
+            padding:
+                bottom: .75rem
+        .text-zone
+            font:
+                size: .875rem
+    
+    // video
+    .lessons .info
+        padding: 1.25rem 1rem
+    .lessons .active_video .open_video
+        min-height: 20rem
+    .error4O4
+        .content
+            position: absolute
+            top: 30%
+            left: 50%
+            transform: translate(-50%,-50%)
+            display: block
+        .text-zone
+            font:
+                size: .875rem
+                weight: 400
+            text-align: center
+            display: block
+            padding-bottom: 1.25rem
+            span
+                display: block
+                margin: 5px 0
+                width: 100%
+        h1
+            font-size: 5.625rem
+            line-height: 1
+            text-align: center
+        .back
+            padding:
+                top: 1rem
+            display: flex
+            align-items: center
+            flex-direction: column
+            justify-content: center
+            font-size: .75rem
+            span
+                margin-bottom: 1.25rem
+            .btn
+                display: inline-block
+                color: $bg
+                background: $block
+                font:
+                    size: 1rem
+                    weight: 700
+                    family: $logofont
+                line-height: 1
+                padding: .8125rem .6875rem
+                margin:
+                    left: .9375rem
+                border-radius: 1.25rem
+                transition: .5s all ease-in-out .05s
+                border: .125rem solid transparent
+                box-sizing: border-box
+                &:hover,&:focus
+                    border: .125rem solid $accent
+                    background: $bg
+                    color: $accent
+
+
+// ================ > 416 px ( 25rem ) ================ \\
+@media screen and ( max-width: 25.875rem )
+    .modal
+        width: 95%
+    .grid-item
+        height: 11rem
+    .header.not-main nav.open-menu ul li
+        line-height: 1.25
+    .header nav ul li.current_page_item > a
+        font:
+            size: 1.3rem
+
+
+// ================ > 320 px ( 20rem ) ================ \\
+@media screen and (max-width: 20rem)
+    
+    .main-content
+        padding:
+            top: 2.75rem
+    .header nav
+        top: 45%
+    .modal-header .title
+        font:
+            size: 1rem
+    .main-content .info .btn
+        padding: .8125rem 3.6875rem
+    .header-logo span
+        font:
+            size: .75rem
+        line-height: 1.25
+    .header-logo_img
+        width: 3.6rem
+        height: 2.8rem
+        img
+            width: 60%
+    .header .hamburger.is-active
+        .hamburger-box
+            width: 2.5rem
+        
+    .header .hamburger
+        width: 3rem
+        height: 3rem
+    .header .hamburger-box
+        width: 1.5rem
+        top: 29%
+    .header .hamburger-inner, .header .hamburger-inner:before, .header .hamburger-inner:after
+        width: 1.5rem
+        height: .1875rem
+    .hamburger-inner
+        margin:
+            top: 0
+    .hamburger-inner:after
+        bottom: -9px
+    .hamburger-inner:before
+        top: -9px 
+    .anim_circle .circle:nth-child(1) 
+        left: -70%
+        top: 66%
+    
+    .main-content .info .social li a
+        font:
+            size: 1.5rem
+        width: 3rem
+        height: 3rem
+    .aboutme .anim_circle .circle:nth-child(1)
+        bottom: -28%
+    .grid-item
+        height: 9rem
+    .picturekids .anim_circle .circle:nth-child(1), .mypicture .anim_circle .circle:nth-child(1)
+        top: 75%
+    .main-content .info .tab
+        padding: .5rem 1.875rem
+        margin: 0 .3125rem
+    .header nav ul li.current_page_item > a
+        font:
+            size: 1.125rem
+
+// ================  < 960px ( 60rem ) and > 768px (48 rem) ================ \\
+@media ( min-width: 48rem ) and ( max-width: 60rem )
+    .artist-img img
+        width: 50%
+        margin: 0 auto
+        
+    .header-active
+        height: 100vh
+    .anim_circle .circle:nth-child(3)
+        left: 50%
+        top: 80%
+    .header nav
+        top: 58%
+    .aboutme .anim_circle .circle:nth-child(3)
+        left: -15%
+    .aboutme .anim_circle .circle:nth-child(1)
+        right: -20%
+    
+    .grid-item
+        height: 18.75rem
